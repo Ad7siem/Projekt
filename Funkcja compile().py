@@ -11,8 +11,7 @@ stop = time.time()
 time_not_compiled = stop - start
 
 start = time.time()
-sourceComplited = compile(source, 'internal variablesource', 'exec')
-
+sourceComplited = compile(source, 'internal variablesource', 'exec') # w nawiasach trzeba użyć parametrów: co nalezy skompilowac = fragment tekstu do skompilowania || plik - plik z ktorego tekst zostal przeczytany, jezeli tekst nie byl przecztany tylko poprostu znajdowal sie w zmiennej to mozna umiescic dowolny tekst || tryb - wprowadzamy exec - moze zawierac dowolny fragment kodu ktory jest do wykonania lub eval - zawiera wyrazenie lub simple - do skompilowania jest jedna instrukcja
 for i in range(1000):
     exec(sourceComplited)
 stop = time.time()
