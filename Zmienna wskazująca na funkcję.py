@@ -64,10 +64,10 @@ tmp_return_value = number
 
 for list in list_transformations:
     tmp = list(tmp_return_value)
-    print(tmp)
+    print('{}:\t temporal result is:\t {}'.format(list.__name__, tmp))
 
 list_transformations = [root,root,div2,double]
 
 for list in list_transformations:
     tmp = list(tmp_return_value)
-    print(tmp)
+    print('{}:\t temporal result is:\t {}'.format(list.__name__, tmp))
