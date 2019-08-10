@@ -1,7 +1,7 @@
 import smtplib
 import email
 
-mailfFrom = 'Your automatic system'
+mailFrom = 'Your automatic system'
 mailTo = ['Ad_siem@windowslive.com', 'ad7siem@gmail.com']
 mailSubject = 'Processing finished successfully'
 mailBody = '''Ja wiem, 
@@ -14,7 +14,7 @@ message2 = '''From: {}
 Subject: {}
 
 {}
-'''.format(mailfFrom,mailSubject,mailBody) # tu jest problem
+'''.format(mailFrom,mailSubject,mailBody) # tu jest problem
 
 # gdy usunę klamre i mailBody mail zostaje wysłany.
 # Teraz skrypt niezadziala. Nie rozumiem co jest nie tak w debbugu ale wydawalo mi sie ze problem z wartoscia str
