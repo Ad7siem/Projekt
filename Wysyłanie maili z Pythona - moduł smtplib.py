@@ -4,11 +4,12 @@ import email
 mailFrom = 'Your automatic system'
 mailTo = ['Ad_siem@windowslive.com', 'ad7siem@gmail.com']
 mailSubject = 'Processing finished successfully'
-mailBody = '''Ja wiem, 
+mailBody = '''
+Ja wiem, 
 Wiem czego chcesz, 
 wiem czego brak, 
 wiem co bys chcial, 
-a możliwości do tego brak'''
+a możliwości do tego brak''' # encoding utf-8
 
 message2 = '''From: {} 
 Subject: {}
