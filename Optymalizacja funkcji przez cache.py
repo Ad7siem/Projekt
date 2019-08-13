@@ -48,19 +48,21 @@ def fib_optimal(n):
         result = fib(n - 1) + fib(n - 2)
 
     return result
-
+'''
 
 start = time.time()
-for i in range(1, 35):
+for i in range(1, 30):
     print('{} = {}'.format(i, fib(i)))
 stop = time.time()
-print('Czas obliczeń: ', time1=stop - start)
-
+time1 = stop - start
+print('Czas obliczeń: ', time1)
+'''
 start = time.time()
-for i in range(1, 35):
+for i in range(1, 30):
     print('{} = {}'.format(i, fib_optimal(i)))
 stop = time.time()
-print('Czas obliczeń: ', time2=stop - start)
+time2 = stop - start
+print('Czas obliczeń: ', time2)
 
 print(fib_optimal.cache_info())
-print('Różnica czasu obliczen wynosi:', time1-time2)
+#print('Różnica czasu obliczen wynosi:', time1-time2)
