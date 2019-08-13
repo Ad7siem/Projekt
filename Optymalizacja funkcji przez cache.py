@@ -39,7 +39,7 @@ def fib(n):
 
     return result
 
-@functools.lru_cache(100)
+@functools.lru_cache(maxsize=100)
 def fib_optimal(n):
     if n <= 2:
         result = n
