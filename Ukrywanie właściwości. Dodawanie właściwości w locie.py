@@ -8,7 +8,7 @@ class Car:
         self.isAirBagOK = isAirBagOK
         self.isPaintingOK = isPaintingOK
         self.isMechanicOK = isMechanicOK
-        self.__isOnSale = isOnSale
+        self.__isOnSale = isOnSale  # dzieki __ atrybut zostal ukryty
         Car.numberOfCars += 1
         Car.listOfCars.append(self)
 
