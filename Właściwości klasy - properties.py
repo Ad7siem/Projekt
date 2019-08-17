@@ -53,3 +53,76 @@ print('Status of cars:', car_01.GetIsOnSale(), car_02.GetIsOnSale())
 car_01.IsOnSale = True
 car_02.IsOnSale = True
 print('Status of cars:', car_01.IsOnSale, car_02.IsOnSale)
+
+# ćwiczenia
+
+class Cake:
+
+    known_types = ['ciasto', 'muffin', 'meringue', 'biscuit', 'eclair', 'christmas', 'pretzel', 'other']
+    bakery_offer = []
+
+    def __init__(self, name, kind, taste, additives, filling, gluten_free, text):
+        self.name = name
+        if kind in self.known_types:
+            self.kind = kind
+        else:
+            self.kind = 'other'
+        self.taste = taste
+        self.additives = additives.copy()
+        self.filling = filling
+        self.__gluten_free = gluten_free
+        Cake.bakery_offer.append(self)
+        if kind == 'ciasto' or text == '':
+            self.__text = text
+        else:
+            print('Warunki zmiennej w {} niespełniają warunków'.format(name))
+
+    def show_info(self):
+        print('{}'.format(self.name.upper()))
+        print('{}'.format(self.kind))
+        print('{}'.format(self.taste))
+        if len(self.additives) > 0:
+            for a in self.additives:
+                print('{}'.format(a))
+        if len(self.filling) > 0:
+            print('{}'.format(self.filling))
+        print('{}'.format(self.__gluten_free))
+        print('-' * 30)
+
+    def set_filling(self, filling):
+        self.filling = filling
+
+    def add_additives(self, addtitives):
+        self.additives.extend(addtitives)
+
+    def __get_text(self):
+        return __text
+
+    def __set_text(self, new_text):
+        if self.kind == 'ciasto'
+
+
+cake_01 = Cake('Sernik', 'ciasto', 'ser tortowy', ['rodzynki', 'posypka'], '', False)
+cake_02 = Cake('Zakonnica', 'ciasto', 'kako', ['polewa kakowa', 'gorzka czekolada'],
+               'kieliszek rumu lub kieliszek wódki i kropleolejku migdałowego lub rumowego', False)
+cake_03 = Cake('Galareciak', 'tort', 'galaretki', ['truskawki', 'banan', 'brzoskiwnia'], '', False)
+cake_04 = Cake('Wafel Kakaowy','wafel','kakao',[],'kakao', False)
+
+cake_03.set_filling('krem waniliowy')
+cake_01.add_additives(['czkolada', 'kokos'])
+
+print('Today in our offer:')
+for cake in Cake.bakery_offer:
+    print('{} - ({}) main taste: {} with additives of {},filled with: {}'.format(cake.name, cake.kind, cake.taste,
+                                                                                 cake.additives, cake.filling))
+    cake.show_info()
+
+    print('Czy obiekt: {} znajduje się w instancji: {}:'.format(cake.name,Cake.__name__),isinstance(cake_04,Cake),'\n')
+    print('Czy obiekt: {} znajduje się w instancji: {}:'.format(cake.name, Cake.__name__), type(cake) is Cake, '\n')
+
+print('-'*30)
+
+cake_03.__gluten_free = True
+print(dir(cake_03))
+cake_03._Cake__gluten_free = True
+cake_03.show_info()
