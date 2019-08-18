@@ -120,6 +120,7 @@ print('Today in our offer:')
 for cake in Cake.bakery_offer:
     cake.show_info()
 
+
 print('-'*30)
 
 cake_01.Text = 'Happy birthday!'
