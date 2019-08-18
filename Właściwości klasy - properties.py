@@ -41,10 +41,12 @@ class Car:
     # sluzy do zmiany wartosci, funkcja ktora moze usunac atrybut, definiuje dokumentacjie dla tej wlasciwosci (
     # opcjonalnie))
 
+
 car_01 = Car('Seat', 'Ibiza', True, True, True, False)
 car_02 = Car('Opel', 'Corsa', True, False, True, True)
 
-print('Status of cars:', car_01._Car__GetIsOnSale(), car_02._Car__GetIsOnSale()) # nie powinno się tak zmieniac wartosci zmiennych funkcji
+print('Status of cars:', car_01._Car__GetIsOnSale(),
+      car_02._Car__GetIsOnSale())  # nie powinno się tak zmieniac wartosci zmiennych funkcji
 '''
 car_01.SetIsOnSale(True)
 car_02.SetIsOnSale(False)
@@ -54,10 +56,10 @@ car_01.IsOnSale = True
 car_02.IsOnSale = True
 print('Status of cars:', car_01.IsOnSale, car_02.IsOnSale)
 
+
 # ćwiczenia
 
 class Cake:
-
     known_types = ['ciasto', 'muffin', 'meringue', 'biscuit', 'eclair', 'christmas', 'pretzel', 'other']
     bakery_offer = []
 
@@ -114,14 +116,13 @@ cake_01 = Cake('Sernik', 'ciasto', 'ser tortowy', ['rodzynki', 'posypka'], '', F
 cake_02 = Cake('Zakonnica', 'ciasto', 'kako', ['polewa kakowa', 'gorzka czekolada'],
                'kieliszek rumu lub kieliszek wódki i kropleolejku migdałowego lub rumowego', False, '')
 cake_03 = Cake('Galareciak', 'tort', 'galaretki', ['truskawki', 'banan', 'brzoskiwnia'], '', False, '')
-cake_04 = Cake('Wafel Kakaowy','wafel','kakao',[],'kakao', False,'')
+cake_04 = Cake('Wafel Kakaowy', 'wafel', 'kakao', [], 'kakao', False, '')
 
 print('Today in our offer:')
 for cake in Cake.bakery_offer:
     cake.show_info()
 
-
-print('-'*30)
+print('-' * 30)
 
 cake_01.Text = 'Happy birthday!'
 cake_02.Text = '18'
