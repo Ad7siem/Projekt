@@ -75,6 +75,7 @@ class Cake:
         if kind == 'ciasto' or text == '':
             self.__text = text
         else:
+            self.__text = ''
             print('Warunki zmiennej w {} niespełniają warunków'.format(name))
 
     def show_info(self):
@@ -86,7 +87,9 @@ class Cake:
                 print('{}'.format(a))
         if len(self.filling) > 0:
             print('{}'.format(self.filling))
-        print('{}'.format(self.__gluten_free))
+        print('Gluten free: {}'.format(self.__gluten_free))
+        if len(self.__text) > 0:
+            print('Text:    {}'.format(self.__text))
         print('-' * 30)
 
     def set_filling(self, filling):
@@ -99,30 +102,28 @@ class Cake:
         return __text
 
     def __set_text(self, new_text):
-        if self.kind == 'ciasto'
+        if self.kind == 'ciasto':
+            self.__text = new_text
+        else:
+            print('>>>>>Text can be set only for cake ({})'.format(self.name))
+
+    Text = property(__get_text, __set_text, None, 'Text on the cake')
 
 
-cake_01 = Cake('Sernik', 'ciasto', 'ser tortowy', ['rodzynki', 'posypka'], '', False)
+cake_01 = Cake('Sernik', 'ciasto', 'ser tortowy', ['rodzynki', 'posypka'], '', False, 'Happy Birthday Margaret!')
 cake_02 = Cake('Zakonnica', 'ciasto', 'kako', ['polewa kakowa', 'gorzka czekolada'],
-               'kieliszek rumu lub kieliszek wódki i kropleolejku migdałowego lub rumowego', False)
-cake_03 = Cake('Galareciak', 'tort', 'galaretki', ['truskawki', 'banan', 'brzoskiwnia'], '', False)
-cake_04 = Cake('Wafel Kakaowy','wafel','kakao',[],'kakao', False)
-
-cake_03.set_filling('krem waniliowy')
-cake_01.add_additives(['czkolada', 'kokos'])
+               'kieliszek rumu lub kieliszek wódki i kropleolejku migdałowego lub rumowego', False, '')
+cake_03 = Cake('Galareciak', 'tort', 'galaretki', ['truskawki', 'banan', 'brzoskiwnia'], '', False, '')
+cake_04 = Cake('Wafel Kakaowy','wafel','kakao',[],'kakao', False,'')
 
 print('Today in our offer:')
 for cake in Cake.bakery_offer:
-    print('{} - ({}) main taste: {} with additives of {},filled with: {}'.format(cake.name, cake.kind, cake.taste,
-                                                                                 cake.additives, cake.filling))
     cake.show_info()
-
-    print('Czy obiekt: {} znajduje się w instancji: {}:'.format(cake.name,Cake.__name__),isinstance(cake_04,Cake),'\n')
-    print('Czy obiekt: {} znajduje się w instancji: {}:'.format(cake.name, Cake.__name__), type(cake) is Cake, '\n')
 
 print('-'*30)
 
-cake_03.__gluten_free = True
-print(dir(cake_03))
-cake_03._Cake__gluten_free = True
-cake_03.show_info()
+cake_01.Text = 'Happy birthday!'
+cake_02.Text = '18'
+
+for c in Cake.bakery_offer:
+    c.show_info()
