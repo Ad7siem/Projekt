@@ -40,20 +40,22 @@ class Combinations:
         self.customers = customers
 
     def __getitem__(self, item):
-        if item > len(self.products) * len(self.promotions) * len(self.customers):
-            raise StopIteration
+
+        if item >= len(self.products) * len(self.promotions) * len(self.customers):
+            raise StopIteration()
         else:
             pos_products = item // (len(self.promotions) * len(self.customers))
             item = item % (len(self.promotions) * len(self.customers))
             pos_promotions = item // len(self.customers)
-            item = item % self.customers
+            item = item % len(self.customers)
             pos_customers = item
 
-        return '{} - {} - {}'.format(self.products[pos_products], self.promotions[pos_promotions],
-                                     self.customers[pos_customers])
+            return "{} - {} -{}".format(self.products[pos_products],
+                                        self.promotions[pos_promotions],
+                                        self.customers[pos_customers])
 
-    def __iter__(self):
-        return self
+#    def __iter__(self):
+#        return self
 
 
 products = ["Product {}".format(i) for i in range(1, 4)]
@@ -62,5 +64,11 @@ customers = ['Customer {}'.format(i) for i in range(1, 6)]
 
 combinations = Combinations(products, promotions, customers)
 
-for i in range(1,30):
-    print(i, combinations[i])
+#for i in range(1,30):
+#    print(i, combinations[i])
+
+combinations_iterator = iter(combinations)
+print(next(combinations_iterator))
+
+for c in combinations_iterator:
+    print(c)
